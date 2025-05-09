@@ -34,14 +34,13 @@ const About: React.FC<AboutProps> = (props) => {
                 <h3>About Me</h3>
                 <br />
                 <p>
-                    From a young age, I have had a curiosity about how things
-                    worked. This naturally led me to become absolutely obsessed
-                    with Lego and I fell in love with building things. In
-                    elementary school, I joined the Lego Robotics team at my
-                    local middle school, which was my first real exposure to
-                    programming. In 2008, my family and I moved across the
-                    country from California to New York, where I attended middle
-                    school, high school, and college.
+                    2013年，我开始在大学学习计算机科学。这是我的第一选择，编程除了是我的工作，同样也是我的爱好。大四结束时，我开始了互联网开发工作，主要从事前端工作。
+                </p>
+                <p>
+                    对于编程，与其说是一种谋生的手段，不如说是一种爱好。编程是我生活中不可或缺的一部分，我喜欢用代码来解决问题，创造出有趣的东西。
+                </p>
+                <p>
+                    我喜欢用代码来表达我的想法，创造出有趣的东西。编程让我感到快乐，我希望能把这种快乐传递给更多的人。
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -57,11 +56,6 @@ const About: React.FC<AboutProps> = (props) => {
                         </sub>
                     </p>
                 </div>
-                <br />
-                <p>
-                    2013年，我开始在大学学习计算机科学。这是我的第一选择，编程除了是我的工作，同样也是我的爱好。大四结束时，我开始了互联网开发工作，主要从事前端工作。
-                </p>
-                <br />
                 <br />
                 <div style={{}}>
                     <div
@@ -111,7 +105,7 @@ const styles: StyleSheetCSS = {
     },
     image: {
         height: 'auto',
-        width: '100%',
+        width: '30%',
     },
     imageSm: {
         height: 'auto',
