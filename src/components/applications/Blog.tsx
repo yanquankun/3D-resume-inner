@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Window from '../os/Window';
 import useInitialWindowSize from '../../hooks/useInitialWindowSize';
 import IframeLoading from '../general/IframeLoading';
@@ -7,6 +7,7 @@ export interface ThisComputerProps extends WindowAppProps {}
 
 const Blog: React.FC<ThisComputerProps> = (props) => {
     const { initWidth, initHeight } = useInitialWindowSize({ margin: 100 });
+    const [loading, setLoading] = useState(true);
 
     return (
         <Window
@@ -22,18 +23,15 @@ const Blog: React.FC<ThisComputerProps> = (props) => {
             bottomLeftText={'闫全堃（Mint）个人博客'}
         >
             <div className="site-page">
-                {IframeLoading()}
+                {loading && IframeLoading()}
                 <iframe
                     src="https://www.yanquankun.cn/"
                     title="个人博客"
                     width="100%"
                     height="100%"
+                    loading="lazy"
                     onLoad={() => {
-                        const loading =
-                            document.getElementById('iframe-loading');
-                        if (loading) {
-                            loading.style.display = 'none';
-                        }
+                        setLoading(false);
                     }}
                 />
             </div>
