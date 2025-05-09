@@ -70,34 +70,22 @@ const Projects: React.FC<ProjectsProps> = (props) => {
             <h1>Projects</h1>
             <h3>& Hobbies</h3>
             <br />
-            <p>
-                Click on one of the areas below to check out some of my favorite
-                projects I've done in that field. I spent a lot of time to
-                include a lot of visuals and interactive media to showcase each
-                project. Enjoy!
-            </p>
+            <p>点击下面的一个区域，看看我在这个领域所做的一些我最喜欢的项目</p>
             <br />
             <div style={styles.projectLinksContainer}>
                 <ProjectBox
                     icon={software}
                     iconStyle={styles.computerIcon}
-                    title="Software"
-                    subtitle="PROJECTS"
-                    route="software"
+                    title="个人博客"
+                    subtitle="Blog"
+                    route="blog"
                 />
                 <ProjectBox
-                    icon={music}
+                    icon={software}
                     iconStyle={styles.musicIcon}
-                    title="Music"
-                    subtitle="VENTURES"
-                    route="music"
-                />
-                <ProjectBox
-                    icon={art}
-                    iconStyle={styles.artIcon}
-                    title="Art"
-                    subtitle="ENDEAVORS"
-                    route="art"
+                    title="个人主页"
+                    subtitle="website"
+                    route="website"
                 />
             </div>
         </div>

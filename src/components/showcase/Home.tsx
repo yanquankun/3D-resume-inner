@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from '../general';
-
-import forhire from '../../assets/pictures/forHireGif.gif';
 import { useNavigate } from 'react-router';
 
 export interface HomeProps {}
@@ -16,8 +14,8 @@ const Home: React.FC<HomeProps> = (props) => {
     return (
         <div style={styles.page}>
             <div style={styles.header}>
-                <h1 style={styles.name}>Henry Heffernan</h1>
-                <h2>Software Engineer</h2>
+                <h1 style={styles.name}>闫全堃（Mint）</h1>
+                <h2>FE Engineer</h2>
             </div>
             <div style={styles.buttons}>
                 <Link containerStyle={styles.link} to="about" text="ABOUT" />
@@ -26,20 +24,21 @@ const Home: React.FC<HomeProps> = (props) => {
                     to="experience"
                     text="EXPERIENCE"
                 />
-                <Link
+                {/* <Link
                     containerStyle={styles.link}
                     to="projects"
                     text="PROJECTS"
-                />
+                /> */}
                 <Link
                     containerStyle={styles.link}
                     to="contact"
                     text="CONTACT"
                 />
             </div>
-            <div style={styles.forHireContainer} onMouseDown={goToContact}>
-                {/* <img src={forhire} alt="" /> */}
-            </div>
+            <div
+                style={styles.forHireContainer}
+                onMouseDown={goToContact}
+            ></div>
         </div>
     );
 };

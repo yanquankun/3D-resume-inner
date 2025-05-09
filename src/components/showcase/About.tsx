@@ -3,33 +3,30 @@ import me from '../../assets/pictures/workingAtComputer.jpg';
 import meNow from '../../assets/pictures/currentme.jpg';
 import { Link } from 'react-router-dom';
 import ResumeDownload from './ResumeDownload';
+import dayjs from 'dayjs';
 
 export interface AboutProps {}
 
 const About: React.FC<AboutProps> = (props) => {
+    const currentYear = dayjs().year();
     return (
         // add on resize listener
         <div className="site-page-content">
             {/* <img src={me} style={styles.topImage} alt="" /> */}
             <h1 style={{ marginLeft: -16 }}>Welcome</h1>
-            <h3>I'm Henry Heffernan</h3>
+            <h3>I'm 闫全堃（Mint）</h3>
             <br />
             <div className="text-block">
                 <p>
-                    I'm a software engineer currently working at Vercel! In May
-                    of 2022 I graduated from Rensselaer Polytechnic Institute
-                    with my BS in Computer Science.
+                    一枚一直向前奔跑中的前端程序员~ 业余时间,
+                    我会在此持续更新个人介绍.
+                    也会在此更新一项个人项目地址，如果对我感兴趣，联系我!
                 </p>
                 <br />
                 <p>
-                    Thank you for taking the time to check out my portfolio. I
-                    really hope you enjoy exploring it as much as I enjoyed
-                    building it. If you have any questions or comments, feel
-                    free to contact me using{' '}
-                    <Link to="/contact">this form</Link> or shoot me an email at{' '}
-                    <a href="mailto:henryheffernan@gmail.com">
-                        henryheffernan@gmail.com
-                    </a>
+                    感谢您抽出时间来查看我的作品集。我真心希望你们喜欢探索它，就像我喜欢制作它一样。如果您有任何问题或意见，请随时与我联系{' '}
+                    ，给我发邮件{' '}
+                    <a href="mailto:17600610907@163.com">17600610907@163.com</a>
                 </p>
             </div>
             <ResumeDownload />
@@ -48,7 +45,11 @@ const About: React.FC<AboutProps> = (props) => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <img src={me} style={styles.image} alt="" />
+                    <img
+                        src="https://www.yanquankun.cn/cdn/resume/self.jpg"
+                        style={styles.image}
+                        alt=""
+                    />
                     <p>
                         <sub>
                             <b>Figure 1:</b> A real photo of me developing this
@@ -56,34 +57,9 @@ const About: React.FC<AboutProps> = (props) => {
                         </sub>
                     </p>
                 </div>
-
-                <p>
-                    I started programming more seriously in high school,
-                    initially learning how to scrape and interact with websites.
-                    I went on to do a ton of passion projects, many of them with
-                    one of my closest friends,{' '}
-                    <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href="https://www.linkedin.com/in/scott-bass-189a7919b/"
-                    >
-                        Scott Bass
-                    </a>
-                    . We worked on many projects together, including chat bots,
-                    multiple game projects, apps, and more. One of these
-                    projects is viewable on my{' '}
-                    <Link to="/projects/software">Software Projects</Link> page.
-                </p>
                 <br />
                 <p>
-                    In 2017, I got accepted into Rennselear Polytechnic
-                    Institute to study Computer Science. It was my first choice
-                    and I was absolutely ecstatic to be going to such a great
-                    university. At the end of my sophomore year, I got an
-                    internship working for the startup Hover, primarily focusing
-                    on frontend work. I continued to work at Hover on and off
-                    for about a year and a half, until the start of my senior
-                    year when I decided to focus on other opportunities.
+                    2013年，我开始在大学学习计算机科学。这是我的第一选择，编程除了是我的工作，同样也是我的爱好。大四结束时，我开始了互联网开发工作，主要从事前端工作。
                 </p>
                 <br />
                 <br />
@@ -96,33 +72,22 @@ const About: React.FC<AboutProps> = (props) => {
                             flexDirection: 'column',
                         }}
                     >
-                        <h3>My Hobbies</h3>
+                        <h3>我的爱好</h3>
                         <br />
                         <p>
-                            Beyond software, I have a lot of hobbies that I
-                            enjoy doing in my free time. The more tangible
-                            hobbies I have are{' '}
-                            <Link to="/projects/music">Music Production</Link>{' '}
-                            and creating{' '}
-                            <Link to="/projects/art">Digital Art</Link>. You can
-                            read more about each of these on their respective
-                            pages under my projects tab. Some other hobbies I
-                            enjoy are working out, cooking, and (unsurprisingly)
-                            playing video games.
+                            除了软件之外，我还有很多业余爱好。我更具体的爱好是：锻炼、烹饪和（毫不奇怪的）玩电子游戏.
                         </p>
                         <br />
-                        <p>
-                            In college, I was an active member in the fraternity
-                            Sigma Alpha Epsilon and held multiple positions in
-                            the chapter. I met a lot of amazing people through
-                            my fraternity and thoroughly enjoyed the community.
-                        </p>
                     </div>
                     <div style={styles.verticalImage}>
-                        <img src={meNow} style={styles.image} alt="" />
+                        <img
+                            src="https://www.yanquankun.cn/cdn/resume/myself.jpg"
+                            style={styles.imageSm}
+                            alt=""
+                        />
                         <p>
                             <sub>
-                                <b>Figure 2:</b> Me, April 2022
+                                <b>Figure 2:</b> Me, April 2021
                             </sub>
                         </p>
                     </div>
@@ -130,28 +95,9 @@ const About: React.FC<AboutProps> = (props) => {
                 <br />
                 <br />
                 <p>
-                    Thanks for reading about me! I hope that you enjoy exploring
-                    the rest of my portfolio website and everything it has to
-                    offer. If you find the easter egg make sure to let me know
-                    on twitter{' '}
-                    <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href="https://twitter.com/henryheffernan"
-                    >
-                        @henryheffernan
-                    </a>{' '}
-                    Good luck and have fun!
-                </p>
-                <br />
-                <p>
-                    If you have any questions or comments I would love to hear
-                    them. You can reach me through the{' '}
-                    <Link to="/contact">contact page</Link> or shoot me an email
-                    at{' '}
-                    <a href="mailto:henryheffernan@gmail.com">
-                        henryheffernan@gmail.com
-                    </a>
+                    如果你有任何问题或意见，我很乐意听到。你可以通过{' '}
+                    邮件联系到我{' '}
+                    <a href="mailto:17600610907@163.com">17600610907@163.com</a>
                 </p>
             </div>
         </div>
@@ -166,6 +112,10 @@ const styles: StyleSheetCSS = {
     image: {
         height: 'auto',
         width: '100%',
+    },
+    imageSm: {
+        height: 'auto',
+        width: '25%',
     },
     topImage: {
         height: 'auto',

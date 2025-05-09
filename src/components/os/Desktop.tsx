@@ -1,16 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
-import Doom from '../applications/Doom';
-import OregonTrail from '../applications/OregonTrail';
 import ShutdownSequence from './ShutdownSequence';
-// import ThisComputer from '../applications/ThisComputer';
-import Henordle from '../applications/Henordle';
+import Blog from '../applications/Blog';
+import Pdf from '../applications/Pdf';
+import Website from '../applications/Website';
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
-import Scrabble from '../applications/Scrabble';
 import { IconName } from '../../assets/icons';
-import Credits from '../applications/Credits';
+// import Credits from '../applications/Credits';
+// import ThisComputer from '../applications/ThisComputer';
 
 export interface DesktopProps {}
 
@@ -32,40 +31,34 @@ const APPLICATIONS: {
     // },
     showcase: {
         key: 'showcase',
-        name: 'My Showcase',
+        name: '个人展示',
         shortcutIcon: 'showcaseIcon',
         component: ShowcaseExplorer,
     },
-    trail: {
-        key: 'trail',
-        name: 'The Oregon Trail',
-        shortcutIcon: 'trailIcon',
-        component: OregonTrail,
+    blog: {
+        key: 'blog',
+        name: '个人博客',
+        shortcutIcon: 'blog',
+        component: Blog,
     },
-    doom: {
-        key: 'doom',
-        name: 'Doom',
-        shortcutIcon: 'doomIcon',
-        component: Doom,
+    pdf: {
+        key: 'pdf',
+        name: 'pdf工具',
+        shortcutIcon: 'pdf',
+        component: Pdf,
     },
-    scrabble: {
-        key: 'scrabble',
-        name: 'Scrabble',
-        shortcutIcon: 'scrabbleIcon',
-        component: Scrabble,
-    },
-    henordle: {
-        key: 'henordle',
-        name: 'Henordle',
-        shortcutIcon: 'henordleIcon',
-        component: Henordle,
-    },
-    credits: {
-        key: 'credits',
-        name: 'Credits',
+    website: {
+        key: 'website',
+        name: '个人主页',
         shortcutIcon: 'credits',
-        component: Credits,
+        component: Website,
     },
+    // credits: {
+    //     key: 'credits',
+    //     name: 'Credits',
+    //     shortcutIcon: 'credits',
+    //     component: Credits,
+    // },
 };
 
 const Desktop: React.FC<DesktopProps> = (props) => {
@@ -105,7 +98,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         });
 
         newShortcuts.forEach((shortcut) => {
-            if (shortcut.shortcutName === 'My Showcase') {
+            if (shortcut.shortcutName === '个人展示') {
                 shortcut.onOpen();
             }
         });

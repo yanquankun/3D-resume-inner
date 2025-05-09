@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '../general';
-import forHire from '../../assets/pictures/forHireGif.gif';
 import { useLocation, useNavigate } from 'react-router';
 
 export interface VerticalNavbarProps {}
@@ -32,8 +31,8 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     return !isHome ? (
         <div style={styles.navbar}>
             <div style={styles.header}>
-                <h1 style={styles.headerText}>Henry</h1>
-                <h1 style={styles.headerText}>Heffernan</h1>
+                <h1 style={styles.headerText}>闫全堃</h1>
+                <h1 style={styles.headerText}>Mint</h1>
                 <h3 style={styles.headerShowcase}>Showcase '22</h3>
             </div>
             <div style={styles.links}>
@@ -44,7 +43,7 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                     to="experience"
                     text="EXPERIENCE"
                 />
-                <Link
+                {/* <Link
                     containerStyle={Object.assign(
                         {},
                         styles.link,
@@ -59,22 +58,17 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                         <div style={styles.insetLinks}>
                             <Link
                                 containerStyle={styles.insetLink}
-                                to="projects/software"
-                                text="SOFTWARE"
+                                to="projects/blog"
+                                text="个人博客"
                             />
                             <Link
                                 containerStyle={styles.insetLink}
-                                to="projects/music"
-                                text="MUSIC"
-                            />
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/art"
-                                text="ART"
+                                to="projects/website"
+                                text="个人主页"
                             />
                         </div>
                     )
-                }
+                } */}
                 <Link
                     containerStyle={styles.link}
                     to="contact"

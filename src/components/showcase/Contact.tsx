@@ -30,85 +30,7 @@ const SocialBox: React.FC<SocialBoxProps> = ({ link, icon }) => {
     );
 };
 
-const Contact: React.FC<ContactProps> = (props) => {
-    const [company, setCompany] = useState('');
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [message, setMessage] = useState('');
-    const [isFormValid, setIsFormValid] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [formMessage, setFormMessage] = useState('');
-    const [formMessageColor, setFormMessageColor] = useState('');
-
-    useEffect(() => {
-        if (validateEmail(email) && name.length > 0 && message.length > 0) {
-            setIsFormValid(true);
-        } else {
-            setIsFormValid(false);
-        }
-    }, [email, name, message]);
-
-    async function submitForm() {
-        if (!isFormValid) {
-            setFormMessage('Form unable to validate, please try again.');
-            setFormMessageColor('red');
-            return;
-        }
-        try {
-            setIsLoading(true);
-            const res = await fetch(
-                'https://api.henryheffernan.com/api/contact',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        company,
-                        email,
-                        name,
-                        message,
-                    }),
-                }
-            );
-            // the response will be either {success: true} or {success: false, error: message}
-            const data = (await res.json()) as
-                | {
-                      success: false;
-                      error: string;
-                  }
-                | { success: true };
-            if (data.success) {
-                setFormMessage(`Message successfully sent. Thank you ${name}!`);
-                setCompany('');
-                setEmail('');
-                setName('');
-                setMessage('');
-                setFormMessageColor(colors.blue);
-                setIsLoading(false);
-            } else {
-                setFormMessage(data.error);
-                setFormMessageColor(colors.red);
-                setIsLoading(false);
-            }
-        } catch (e) {
-            setFormMessage(
-                'There was an error sending your message. Please try again.'
-            );
-            setFormMessageColor(colors.red);
-            setIsLoading(false);
-        }
-    }
-
-    useEffect(() => {
-        if (formMessage.length > 0) {
-            setTimeout(() => {
-                setFormMessage('');
-                setFormMessageColor('');
-            }, 4000);
-        }
-    }, [formMessage]);
-
+const Contact: React.FC<ContactProps> = () => {
     return (
         <div className="site-page-content">
             <div style={styles.header}>
@@ -116,152 +38,55 @@ const Contact: React.FC<ContactProps> = (props) => {
                 <div style={styles.socials}>
                     <SocialBox
                         icon={ghIcon}
-                        link={'https://github.com/henryjeff'}
-                    />
-                    <SocialBox
-                        icon={inIcon}
-                        link={'https://www.linkedin.com/in/henryheffernan/'}
-                    />
-                    <SocialBox
-                        icon={twitterIcon}
-                        link={'https://twitter.com/henryheffernan'}
+                        link={'https://github.com/yanquankun'}
                     />
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    I am currently employed, however if you have any
-                    opportunities, feel free to reach out - I would love to
-                    chat! You can reach me via my personal email, or fill out
-                    the form below!
+                    如果你对我感兴趣，请随时联系我-我很乐意聊天！你可以通过我的个人邮箱联系我，或者填写下面的表格！
                 </p>
                 <br />
                 <p>
                     <b>Email: </b>
-                    <a href="mailto:henryheffernan@gmail.com">
-                        henryheffernan@gmail.com
-                    </a>
+                    <a href="mailto:17600610907@163.com">17600610907@163.com</a>
                 </p>
-
-                <div style={styles.form}>
-                    <label>
-                        <p>
-                            {!name && <span style={styles.star}>*</span>}
-                            <b>Your name:</b>
-                        </p>
-                    </label>
-                    <input
-                        style={styles.formItem}
-                        type="text"
-                        name="name"
-                        placeholder="Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <label>
-                        <p>
-                            {!validateEmail(email) && (
-                                <span style={styles.star}>*</span>
-                            )}
-                            <b>Email:</b>
-                        </p>
-                    </label>
-                    <input
-                        style={styles.formItem}
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <label>
-                        <p>
-                            <b>Company (optional):</b>
-                        </p>
-                    </label>
-                    <input
-                        style={styles.formItem}
-                        type="company"
-                        name="company"
-                        placeholder="Company"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                    />
-                    <label>
-                        <p>
-                            {!message && <span style={styles.star}>*</span>}
-                            <b>Message:</b>
-                        </p>
-                    </label>
-                    <textarea
-                        name="message"
-                        placeholder="Message"
-                        style={styles.formItem}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                    />
-                    <div style={styles.buttons}>
-                        <button
-                            className="site-button"
-                            style={styles.button}
-                            type="submit"
-                            disabled={!isFormValid || isLoading}
-                            onMouseDown={submitForm}
-                        >
-                            {!isLoading ? (
-                                'Send Message'
-                            ) : (
-                                <p className="loading">Sending</p>
-                            )}
-                        </button>
-                        <div style={styles.formInfo}>
-                            <p
-                                style={Object.assign(
-                                    {},
-                                    { color: formMessageColor }
-                                )}
-                            >
-                                <b>
-                                    <sub>
-                                        {formMessage
-                                            ? `${formMessage}`
-                                            : ' All messages get forwarded straight to my personal email'}
-                                    </sub>
-                                </b>
-                            </p>
-                            <p>
-                                <sub>
-                                    {!isFormValid ? (
-                                        <span>
-                                            <b style={styles.star}>*</b> =
-                                            required
-                                        </span>
-                                    ) : (
-                                        '\xa0'
-                                    )}
-                                </sub>
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <ResumeDownload altText="Need a copy of my Resume?" />
+            <div className="text-block">
+                <p>你也可以通过我的个人微信小程序和公众号关注我~</p>
+                <br />
+                <p>
+                    <b>微信小程序: </b>
+                    <br />
+                    <img
+                        src="https://www.yanquankun.cn/cdn/mini-program-qrcode.png"
+                        style={styles.image}
+                        alt=""
+                    />
+                </p>
+                <p>
+                    <b>公众号: </b>
+                    <br />
+                    <img
+                        src="https://www.yanquankun.cn/cdn/gongzhonghao-qrcode.jpg"
+                        style={styles.image}
+                        alt=""
+                    />
+                </p>
+            </div>
+            <ResumeDownload altText="需要我的一份个人简历?" />
         </div>
     );
 };
 
 const styles: StyleSheetCSS = {
-    form: {
-        flexDirection: 'column',
-        marginTop: 32,
-    },
-    formItem: {
-        marginTop: 4,
-        marginBottom: 16,
-    },
     socialImage: {
         width: 36,
         height: 36,
+    },
+    image:{
+        width: '25%',
+        height: 'auto',
     },
     buttons: {
         justifyContent: 'space-between',
@@ -293,8 +118,6 @@ const styles: StyleSheetCSS = {
     social: {
         width: 4,
         height: 4,
-        // borderRadius: 1000,
-
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 8,
